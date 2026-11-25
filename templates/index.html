@@ -12,7 +12,9 @@
     <ul class="hero-links">
       <li><a href="mailto:{{ p.email }}">{{ p.email }}</a></li>
       <li><a href="{{ p.cv }}">CV</a></li>
-      {% for prof in p.profiles %}<li class="icon-link"><a href="{{ prof.url }}" rel="me" aria-label="{{ prof.label }}" title="{{ prof.label }}"><svg aria-hidden="true" focusable="false"><use href="#i-{{ prof.icon }}"/></svg></a></li>{% endfor %}
+      <li><ul class="icon-row">
+        {% for prof in p.profiles %}<li class="icon-link"><a href="{{ prof.url }}" rel="me" aria-label="{{ prof.label }}" title="{{ prof.label }}"><svg aria-hidden="true" focusable="false"><use href="#i-{{ prof.icon }}"/></svg></a></li>{% endfor %}
+      </ul></li>
     </ul>
   </div>
   <figure class="portrait">

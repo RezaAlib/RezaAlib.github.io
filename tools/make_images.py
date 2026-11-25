@@ -31,7 +31,7 @@ def static_ttf(woff2, **axes):
 
 
 def favicon():
-    _, font = static_ttf("piazzolla-latin-standard-normal.woff2", wght=600, opsz=30)
+    _, font = static_ttf("literata-latin-standard-normal.woff2", wght=600, opsz=72)
     gs = font.getGlyphSet()
     glyph = font.getBestCmap()[ord("R")]
     upm = font["head"].unitsPerEm
@@ -47,7 +47,7 @@ def favicon():
            f'<path fill="#ffffff" d="{pen.getCommands()}"/></svg>\n')
     (ROOT / "static" / "favicon.svg").write_text(svg)
 
-    buf, _ = static_ttf("piazzolla-latin-standard-normal.woff2", wght=600, opsz=30)
+    buf, _ = static_ttf("literata-latin-standard-normal.woff2", wght=600, opsz=72)
     for px, name in ((32, "favicon-32.png"), (180, "apple-touch-icon.png")):
         big = px * 4
         im = Image.new("RGB", (big, big), NAVY)
@@ -61,7 +61,7 @@ def favicon():
 
 
 def og_card():
-    serif, _ = static_ttf("piazzolla-latin-standard-normal.woff2", wght=500, opsz=30)
+    serif, _ = static_ttf("literata-latin-standard-normal.woff2", wght=500, opsz=72)
     sans, _ = static_ttf("schibsted-grotesk-latin-wght-normal.woff2", wght=450)
     card = Image.open(ROOT / "tools" / "og-card-base.png").convert("RGB")
     d = ImageDraw.Draw(card)
