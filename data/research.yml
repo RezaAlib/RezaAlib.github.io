@@ -68,7 +68,7 @@ in_progress:
   - id: jais-nft
     authors: [Reza Alibakhshi, Shirish C. Srivastava, Olivier Chatain]
     stage: review
-    status: Under first-round review
+    status: First-round review
     venue: Journal of the Association for Information Systems
     short: NFTs as creator monetization
     summary: >-
@@ -79,7 +79,7 @@ in_progress:
   - id: misq-ai-failures
     authors: [Anuragini Shirish, Reza Alibakhshi, Shirish C. Srivastava]
     stage: review
-    status: Under first-round review
+    status: First-round review
     venue: MIS Quarterly, special issue on ethics, regulation and policy
     short: Institutional responses to AI hallucinations
     summary: >-
@@ -90,7 +90,7 @@ in_progress:
   - id: jmis-temporal
     authors: [Reza Alibakhshi, Shirish C. Srivastava]
     stage: preparing
-    status: In preparation for submission
+    status: Target journal
     venue: Journal of Management Information Systems
     short: Emotional variation across influencer posts
     summary: >-
@@ -110,7 +110,7 @@ in_progress:
   - id: wp-genai-value
     authors: [Reza Alibakhshi, Dominik Gutt]
     stage: working
-    status: Draft in preparation
+    status: Early draft
     venue: ""
     short: Generative AI and the value of human creative work
     summary: >-
