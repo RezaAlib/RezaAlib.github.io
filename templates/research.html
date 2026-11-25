@@ -3,7 +3,7 @@
 {% block main %}
 <header class="page-head">
   <h1>Research</h1>
-  <p>I study user-generated content and the economics of social media platforms, using econometrics, causal inference and large-scale video, image and text data.</p>
+  <p>I study user-generated content and the economics of social media platforms, combining econometrics and causal inference on large-scale video, image and text data with experimental designs and computationally intensive theory development.</p>
   <p class="aside">Authors are listed by relative contribution.</p>
 </header>
 
@@ -25,39 +25,43 @@
   </div>
 </section>
 
-<section class="section" aria-labelledby="h-collab">
+<section class="section section-wide" aria-labelledby="h-collab">
   <h2 id="h-collab">Coauthors</h2>
   <div class="body">
-    <div class="collab" data-collab>
-      <svg viewBox="{{ net.viewbox }}" role="img" aria-labelledby="net-title net-desc">
-        <title id="net-title">Collaboration map</title>
-        <desc id="net-desc">Reza Alibakhshi at the centre, linked to {{ net.people|length }} coauthors. Line thickness shows the number of joint papers. The same information is listed next to the map.</desc>
-        <defs>
-          <clipPath id="centre-clip"><circle cx="{{ net.cx }}" cy="{{ net.cy }}" r="{{ net.cr }}"/></clipPath>
-        </defs>
-        {% for n in net.people %}
-        <g class="person" data-person="{{ n.key }}">
-          <line class="spoke" x1="{{ net.cx }}" y1="{{ net.cy }}" x2="{{ n.x }}" y2="{{ n.y }}" stroke-width="{{ n.w }}"/>
-          <circle class="node" cx="{{ n.x }}" cy="{{ n.y }}" r="{{ n.r }}"/>
-          <text class="count" x="{{ n.x }}" y="{{ n.y + 4 }}" text-anchor="middle">{{ n.count }}</text>
-          <text class="label" x="{{ n.lx }}" y="{{ n.ly }}" text-anchor="{{ n.anchor }}">{{ n.name }}</text>
-          <text class="label-sub" x="{{ n.lx }}" y="{{ n.ly + 15 }}" text-anchor="{{ n.anchor }}">{{ n.affiliation }}</text>
-          <text class="label-short" x="{{ n.lx }}" y="{{ n.ly + 8 }}" text-anchor="{{ n.anchor }}">{{ n.name.split()[-1] }}</text>
-        </g>
+    <p class="page-note">Countries are shaded by the number of coauthors affiliated there. Point to a shaded country to see who they are, ordered by the number of papers we have written together.</p>
+    <div class="wmap" data-wmap>
+      <svg viewBox="0 0 {{ wmap.width }} {{ wmap.height }}" aria-labelledby="wmap-title" role="group">
+        <title id="wmap-title">Map of coauthors by country</title>
+        {% for c in wmap.shapes %}
+        {% if c.info %}
+        <path class="country bin-{{ c.info.bin }}" d="{{ c.d }}" data-country="{{ c.id }}" tabindex="0" aria-label="{{ c.info.name }}, {{ c.info.count }} {{ 'coauthor' if c.info.count == 1 else 'coauthors' }}"/>
+        {% else %}
+        <path class="country" d="{{ c.d }}" aria-hidden="true"/>
+        {% endif %}
         {% endfor %}
-        <image href="/img/reza-avatar-160.jpg" x="{{ net.cx - net.cr }}" y="{{ net.cy - net.cr }}" width="{{ net.cr * 2 }}" height="{{ net.cr * 2 }}" clip-path="url(#centre-clip)" preserveAspectRatio="xMidYMid slice"/>
-        <circle class="centre-ring" cx="{{ net.cx }}" cy="{{ net.cy }}" r="{{ net.cr }}"/>
+        {% for c in wmap.shapes if c.info %}
+        <circle class="hit" cx="{{ c.cx }}" cy="{{ c.cy }}" r="16" data-country="{{ c.id }}" aria-hidden="true"/>
+        {% endfor %}
       </svg>
-      <ul class="collab-list">
-        {% for n in net.people %}
-        <li tabindex="0" data-person="{{ n.key }}">
-          <p class="who">{{ n.name }}</p>
-          <p class="where">{{ n.full_affiliation }}</p>
-          <p class="joint">{{ n.summary }}</p>
-        </li>
-        {% endfor %}
+      {% for k in wmap.countries %}
+      <div class="wmap-tip" id="tip-{{ k.id }}" data-for="{{ k.id }}" hidden>
+        <p class="tip-head">{{ k.name }}<span>{{ k.count }} {{ 'coauthor' if k.count == 1 else 'coauthors' }}</span></p>
+        <ul>
+          {% for person in k.people %}<li><strong>{{ person.name }}</strong>, {{ person.affiliation }}<span>{{ person.joint }} joint {{ 'paper' if person.joint == 1 else 'papers' }}</span></li>{% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+      <ul class="wmap-legend" aria-hidden="true">
+        <li><span class="swatch bin-1"></span>1 coauthor</li>
+        <li><span class="swatch bin-2"></span>2–3</li>
+        <li><span class="swatch bin-3"></span>4 or more</li>
       </ul>
     </div>
+    <ul class="wmap-list">
+      {% for k in wmap.countries %}
+      <li data-country="{{ k.id }}"><span class="c-name">{{ k.name }}</span> {% for person in k.people %}{{ person.name }} ({{ person.joint }}){% if not loop.last %}, {% endif %}{% endfor %}</li>
+      {% endfor %}
+    </ul>
   </div>
 </section>
 
@@ -77,12 +81,12 @@
 <section class="section" aria-labelledby="h-talks">
   <h2 id="h-talks">Talks and presentations</h2>
   <div class="body">
-    <ul class="dated">
+    <ul class="dated compact">
       {% for k in r.talks %}
-      <li><span class="when">{{ k.date }}</span><p class="what">{{ k.event }}<small>{{ k.place }}</small></p></li>
+      <li><span class="when">{{ k.date }}</span><p class="what">{{ k.event }}<span class="place">, {{ k.place }}</span></p></li>
       {% endfor %}
     </ul>
   </div>
 </section>
 {% endblock %}
-{% block scripts %}<script src="/js/collab.js?v={{ version }}" defer></script>{% endblock %}
+{% block scripts %}<script src="/js/wmap.js?v={{ version }}" defer></script>{% endblock %}

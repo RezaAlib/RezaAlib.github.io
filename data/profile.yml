@@ -27,44 +27,50 @@ profiles:
 
 # One or two sentences under your name.
 statement: >-
-  I study how the emotional and creative qualities of user-generated content
-  shape engagement on social media platforms, and how platforms, through new
-  features, monetization and generative AI, change what people create.
+  I study how the characteristics of user-generated content, from the
+  emotional dynamism of a post to the creative qualities of an image or
+  video, shape engagement on social media platforms, and how platform
+  strategies foster content creation and consumption.
 
 # Home page, "Research" paragraphs.
 research_summary:
   - >-
-    My work sits where user behavior meets platform economics. One line of
-    research measures emotion in the images, text and video that people post
-    and asks how its dynamics relate to engagement, whether that is the gap
-    between what a post shows and what it says, the way emotion shifts from
-    one post to the next, or the arc a short video follows in a few seconds.
+    My research examines user behavior on digital platforms, user-generated
+    content (UGC) and the economics of social media platforms. One line of
+    work asks how the characteristics of content shape engagement. I treat
+    the emotion in content as dynamic rather than fixed. It can diverge
+    between the image and the text of a single post, shift across an
+    influencer’s posts over time, and rise and fall within the few seconds of
+    a short video.
   - >-
-    A second line studies platform decisions and their consequences for
-    creators and audiences, such as the introduction of a stories feature or
-    of NFTs as a way for creators to earn money. More recent projects look at
-    generative AI and the value of human creative work, and at how
-    institutions respond when AI systems fail.
+    A second line examines the strategies platforms use to stimulate content
+    creation and consumption in online communities, such as introducing a
+    stories feature or NFTs as a direct monetization mechanism for creators.
+    More recent projects study how visual generative AI affects the valuation
+    of human creative work, and how institutions respond when AI systems fail.
+    The findings speak to practical decisions that platforms and creators
+    face, such as when to introduce a new feature and how to structure the
+    emotional flow of a video.
   - >-
-    Methodologically, I combine econometrics and causal inference on large
-    observational datasets, often built from unstructured video, image and
-    text, with experimental designs and computationally intensive theory
-    building.
+    Methodologically, I combine econometrics and causal inference on
+    large-scale observational data, much of it built from unstructured video,
+    image and text, with experimental designs and computationally intensive
+    theory development.
 
 # Home page, "Background".
 background:
   - >-
-    I joined IE Business School in September 2022, after completing my PhD in
+    I joined IE Business School in September 2022 after completing my PhD in
     Information Systems and Operations Management at HEC Paris.
   - >-
-    Before academia I spent several years building information systems in
-    Tehran. At Kheili Sabz Publishing Group (2015 to 2017) I worked on
-    databases, data warehouses and business intelligence dashboards and
+    Before academia, I spent several years building information systems in
+    Tehran. As a business analyst and information systems specialist at
+    Kheili Sabz Publishing Group (2015–2017), I worked on databases, ETL
+    packages, data warehouses and business intelligence dashboards, and
     designed the back end of a nationwide online exam system. I also worked
-    as a consultant on enterprise architecture projects for Iran's
-    Information Technology Organization (2016) and for Maskan Bank (2013 to
-    2014).
-  - I speak Farsi and English, and French at B2 level.
+    as a consultant on enterprise architecture projects for Iran’s
+    Information Technology Organization (2016) and Maskan Bank (2013–2014).
+  - I speak Farsi (native), English (fluent) and French (B2).
 
 education:
   - degree: PhD, Information Systems and Operations Management

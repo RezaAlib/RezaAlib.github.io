@@ -50,9 +50,10 @@ in_progress:
     venue: MIS Quarterly
     short: Emotional variability in video ads
     summary: >-
-      Video ads rarely hold a single emotional tone from start to finish.
-      This paper examines how variability in the emotions a video ad
-      expresses over its course relates to viewership and to user engagement.
+      Video ads rarely hold a single emotional tone. This paper theorizes
+      emotional variability, the extent to which the emotions a video ad
+      expresses change over its course, and examines how it relates to
+      viewership and user engagement.
   - id: isr-arcs
     authors: [Reza Alibakhshi, Haris Krijestorac, Shirish C. Srivastava]
     stage: review
@@ -60,10 +61,10 @@ in_progress:
     venue: Information Systems Research
     short: Emotional arcs in short-form video
     summary: >-
-      A short-form video unfolds as an emotional arc that rises and falls
-      within seconds. This paper traces how the shape of that arc relates to
-      engagement, from first capturing a viewer’s attention to prompting them
-      to act.
+      Short-form videos follow emotional arcs that rise and fall within
+      seconds. This paper examines how the shape of a video’s emotional arc
+      relates to engagement at successive stages, from capturing attention to
+      prompting action.
   - id: jais-nft
     authors: [Reza Alibakhshi, Shirish C. Srivastava, Olivier Chatain]
     stage: review
@@ -71,11 +72,10 @@ in_progress:
     venue: Journal of the Association for Information Systems
     short: NFTs as creator monetization
     summary: >-
-      Free social media platforms have started to give creators direct ways
-      to earn money from their content. Using the introduction of
-      non-fungible tokens (NFTs) as a monetization mechanism, this paper
-      examines how the arrival of money changes content creation on a
-      platform.
+      Free social media platforms increasingly offer creators direct ways to
+      earn money from their content. Using the introduction of non-fungible
+      tokens (NFTs) as a direct monetization mechanism, this paper examines
+      how monetization changes content creation on the platform.
   - id: misq-ai-failures
     authors: [Anuragini Shirish, Reza Alibakhshi, Shirish C. Srivastava]
     stage: review
@@ -83,10 +83,10 @@ in_progress:
     venue: MIS Quarterly, special issue on ethics, regulation and policy
     short: Institutional responses to AI hallucinations
     summary: >-
-      AI hallucinations, outputs that are fluent and confident but false,
+      AI hallucinations, outputs that are fluent and confident yet false,
       have begun to surface in legal practice. This paper examines how
-      institutions respond to these failures and what their responses imply
-      for governing work that is mediated by AI.
+      institutions respond to such failures and what those responses imply
+      for governing AI-mediated work.
   - id: jmis-temporal
     authors: [Reza Alibakhshi, Shirish C. Srivastava]
     stage: preparing
@@ -94,10 +94,10 @@ in_progress:
     venue: Journal of Management Information Systems
     short: Emotional variation across influencer posts
     summary: >-
-      Followers of an influencer experience a stream of posts over time
-      rather than one post in isolation. This paper examines how temporal
-      variation in the emotions expressed across an influencer’s posts
-      relates to engagement in influencer-centered communities.
+      Followers experience an influencer’s posts as a sequence over time.
+      This paper examines how temporal variation in the emotions expressed
+      across those posts relates to follower engagement in
+      influencer-centered communities.
   - id: wp-nft-creativity
     authors: [Haris Krijestorac, Reza Alibakhshi, Shirish C. Srivastava]
     stage: working
@@ -105,8 +105,8 @@ in_progress:
     venue: ""
     short: Creativity and delayed rewards in the NFT market
     summary: >-
-      Using data from the NFT art market, this project asks whether creative
-      work is rewarded immediately or whether its rewards arrive with a delay.
+      Using data from the NFT art market, this project examines whether the
+      market rewards creativity immediately or only after a delay.
   - id: wp-genai-value
     authors: [Reza Alibakhshi, Dominik Gutt]
     stage: working
@@ -114,8 +114,8 @@ in_progress:
     venue: ""
     short: Generative AI and the value of human creative work
     summary: >-
-      As visual generative AI spreads, this project studies how it affects
-      the valuation of creative work made by people.
+      This project studies how visual generative AI affects the valuation of
+      human creative work.
 
 proceedings:
   - authors: [Reza Alibakhshi, Shirish C. Srivastava, Sunil Mithas]
@@ -145,21 +145,15 @@ proceedings:
     venue: International Conference on Information Systems (ICIS), Munich
     url: https://aisel.aisnet.org/icis2019/behavior_is/behavior_is/18/
 
-# Coauthors, for the collaboration map. Affiliations checked November 2026.
+# Coauthors, for the world map. Country = country of current affiliation (ISO numeric code).
+# Affiliations checked November 2026.
 coauthors:
-  - name: Shirish C. Srivastava
-    affiliation: HEC Paris
-  - name: Haris Krijestorac
-    affiliation: HEC Paris
-  - name: Olivier Chatain
-    affiliation: HEC Paris
-  - name: Sunil Mithas
-    affiliation: University of South Florida
-  - name: Anuragini Shirish
-    affiliation: Institut Mines-Télécom Business School
-    map_affiliation: IMT Business School
-  - name: Dominik Gutt
-    affiliation: RWTH Aachen University
+  - {name: Shirish C. Srivastava, affiliation: HEC Paris, country: "250", country_name: France}
+  - {name: Haris Krijestorac, affiliation: HEC Paris, country: "250", country_name: France}
+  - {name: Olivier Chatain, affiliation: HEC Paris, country: "250", country_name: France}
+  - {name: Anuragini Shirish, affiliation: Institut Mines-Télécom Business School, country: "250", country_name: France}
+  - {name: Sunil Mithas, affiliation: University of South Florida, country: "840", country_name: United States}
+  - {name: Dominik Gutt, affiliation: RWTH Aachen University, country: "276", country_name: Germany}
 
 talks:
   - {date: "June 2026", year: 2026, event: "Symposium on Statistical Challenges in Electronic Commerce Research (SCECR)", place: "Tokyo, Japan"}

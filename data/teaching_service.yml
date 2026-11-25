@@ -5,23 +5,19 @@ courses:
     program: Global Online MBA
     school: IE Business School
     years: 2022–present
-    rating: "4.78"
     note: Dean’s Teaching Commendation, 2024 and 2025
   - title: Business-Driven Information Technology
     program: Bachelor in Business Analytics
     school: IE Business School
     years: 2022–present
-    rating: "4.3"
   - title: User-Generated Content in Social Media Platforms
     program: Open Advanced Seminars
     school: IE Business School
     years: 2023–present
-    rating: "4.96"
   - title: Digital Management, an introduction to programming in Python
     program: Master in Management (Grande École)
     school: HEC Paris
     years: 2020–2021
-    rating: "4.30"
 
 # Shown on the home page and, where relevant, on Teaching and Service.
 recognition:

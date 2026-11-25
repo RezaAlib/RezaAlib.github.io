@@ -11,7 +11,6 @@ import argparse
 import datetime as dt
 import hashlib
 import json
-import math
 import shutil
 from pathlib import Path
 
@@ -35,48 +34,31 @@ def version_hash():
     return h.hexdigest()[:8]
 
 
-def collab_network(r, me):
-    """Place coauthors on a circle around the centre; sizes follow joint papers."""
-    projects = []
-    for a in r["journal_articles"]:
-        projects.append((a["authors"], "published"))
-    for w in r["in_progress"]:
-        projects.append((w["authors"], "under review" if w["stage"] == "review" else "in preparation"))
+def coauthor_map(r):
+    """Shade countries by the number of coauthors affiliated there."""
+    world = json.loads((ROOT / "data" / "world.json").read_text(encoding="utf-8"))
+    projects = [a["authors"] for a in r["journal_articles"]] + [w["authors"] for w in r["in_progress"]]
+    by_country = {}
+    for c in r["coauthors"]:
+        joint = sum(1 for authors in projects if c["name"] in authors)
+        entry = by_country.setdefault(c["country"], {"name": c["country_name"], "people": []})
+        entry["people"].append({"name": c["name"], "affiliation": c["affiliation"], "joint": joint})
+    for entry in by_country.values():
+        entry["people"].sort(key=lambda x: (-x["joint"], x["name"].split()[-1]))
+        entry["count"] = len(entry["people"])
+        entry["bin"] = 1 if entry["count"] == 1 else (2 if entry["count"] <= 3 else 3)
 
-    cx, cy, radius = 300, 212, 138
-    people = []
-    n = len(r["coauthors"])
-    for i, c in enumerate(r["coauthors"]):
-        joint = [stage for authors, stage in projects if c["name"] in authors]
-        count = len(joint)
-        kinds = [k for k in ("published", "under review", "in preparation") if joint.count(k)]
-        if count == 1:
-            summary = f"1 joint paper, {kinds[0]}"
-        else:
-            summary = f"{count} joint papers (" + ", ".join(f"{joint.count(k)} {k}" for k in kinds) + ")"
-        angle = math.radians(-90 + i * 360 / n)
-        x, y = cx + radius * math.cos(angle), cy + radius * math.sin(angle)
-        node_r = 7 + 3 * math.sqrt(count)
-        cos, sin = math.cos(angle), math.sin(angle)
-        if abs(cos) < 0.2:  # top or bottom
-            anchor, lx = "middle", x
-            ly = y - node_r - 24 if sin < 0 else y + node_r + 18
-        else:
-            anchor = "start" if cos > 0 else "end"
-            lx = x + (node_r + 9) * (1 if cos > 0 else -1)
-            ly = y - 2
-        people.append({
-            "key": c["name"].split()[-1].lower(),
-            "name": c["name"],
-            "affiliation": c.get("map_affiliation", c["affiliation"]),
-            "full_affiliation": c["affiliation"],
-            "count": count,
-            "summary": summary,
-            "x": round(x, 1), "y": round(y, 1), "r": round(node_r, 1),
-            "w": round(1 + 0.8 * count, 1),
-            "lx": round(lx, 1), "ly": round(ly, 1), "anchor": anchor,
-        })
-    return {"viewbox": "0 0 600 424", "cx": cx, "cy": cy, "cr": 34, "people": people}
+    shapes = []
+    for c in world["countries"]:
+        cid = c.get("id")
+        info = by_country.get(cid)
+        shapes.append({"d": c["d"], "id": cid, "name": c["name"], "info": info,
+                       "cx": c["cx"], "cy": c["cy"]})
+    # draw shaded countries last so their outlines sit on top
+    shapes.sort(key=lambda x: x["info"] is not None)
+    countries = sorted(by_country.items(), key=lambda kv: (-kv[1]["count"], kv[1]["name"]))
+    return {"width": world["width"], "height": world["height"], "shapes": shapes,
+            "countries": [dict(id=k, **v) for k, v in countries]}
 
 
 def person_jsonld(p):
@@ -142,7 +124,7 @@ def main():
          f'Editorial roles, reviewing and program committee service of {p["name"]}.'),
         ("404.html", "/404.html", "404.html", f'Page not found | {p["name"]}', short_desc),
     ]
-    extra = {"jsonld": person_jsonld(p), "net": collab_network(r, p["name"])}
+    extra = {"jsonld": person_jsonld(p), "wmap": coauthor_map(r)}
     for tpl, path, out, title, desc in pages:
         html = env.get_template(tpl).render(**common, **extra, path=path, page_title=title,
                                             description=desc)
