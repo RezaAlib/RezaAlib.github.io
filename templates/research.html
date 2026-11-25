@@ -64,10 +64,13 @@
   <h2 id="h-proc">Refereed proceedings</h2>
   <div class="body">
     {% for c in r.proceedings %}
-    <article class="pub">
+    <article class="pub pub-dated">
+      <span class="pub-year">{{ c.year }}</span>
+      <div>
       <h3 class="pub-title"><a href="{{ c.url }}">{{ c.title }}</a></h3>
       <p class="pub-authors">{{ m.authors(c.authors) }}</p>
-      <p class="pub-venue"><i>{{ c.venue }}</i>, {{ c.year }}{% if c.note %}. <span class="flag">{{ c.note }}</span>{% endif %}</p>
+      <p class="pub-venue"><i>{{ c.venue }}</i>{% if c.note %}. <span class="flag">{{ c.note }}</span>{% endif %}</p>
+      </div>
     </article>
     {% endfor %}
   </div>

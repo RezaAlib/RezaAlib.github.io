@@ -23,7 +23,7 @@ To replace the CV, overwrite `static/files/Reza-Alibakhshi-CV.pdf` and rebuild.
 
 ## Design notes
 
-- Colours: IE University navy `#00338D` for text accents and links; IE Business School blue `#0097DC` only for non-text accents (it is too light for text on white). Ranking badges use the colours Reza specified: FT50 `#F4CC9E`, ABDC `#245292`, ABS (AJG) `#7BC5D0`.
+- Colours (palette B1, harbour teal): primary `#235B6A` for the name, headings, links and years; accent `#5F9E98` for underlines and other non-text details; text `#1C2B36`; secondary text `#53646D`; section bands `#EEF4F3`. Ranking badges use the colours Reza specified: FT50 `#F4CC9E`, ABDC `#245292`, ABS (AJG) `#7BC5D0`.
 - Type: Piazzolla for reading text and Schibsted Grotesk for navigation and labels, both under the SIL Open Font License and served from this site (no requests to Google Fonts).
 - The old Google Sites address `/home` redirects to the home page, and `/research` keeps its address.
 

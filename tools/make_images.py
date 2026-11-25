@@ -15,9 +15,9 @@ from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 FONTS = ROOT / "static" / "fonts"
-NAVY = (0, 51, 141)
-INK = (24, 35, 58)
-MUTED = (86, 97, 121)
+NAVY = (35, 91, 106)  # primary, harbour teal
+INK = (28, 43, 54)
+MUTED = (83, 100, 109)
 
 
 def static_ttf(woff2, **axes):
@@ -43,7 +43,7 @@ def favicon():
     tpen = TransformPen(pen, (scale, 0, 0, -scale, tx, ty))
     gs[glyph].draw(tpen)
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {size} {size}">'
-           f'<rect width="{size}" height="{size}" rx="10" fill="#00338d"/>'
+           f'<rect width="{size}" height="{size}" rx="10" fill="#235b6a"/>'
            f'<path fill="#ffffff" d="{pen.getCommands()}"/></svg>\n')
     (ROOT / "static" / "favicon.svg").write_text(svg)
 
@@ -73,7 +73,7 @@ def og_card():
     d.text((76, 390), "Assistant Professor of Information Systems", font=s1, fill=INK)
     sans.seek(0)
     d.text((76, 432), "IE Business School, Madrid", font=ImageFont.truetype(sans, 30), fill=MUTED)
-    d.rectangle((76, 520, 76 + 64, 523), fill=(0, 151, 220))
+    d.rectangle((76, 520, 76 + 64, 523), fill=(95, 158, 152))
     card.save(ROOT / "static" / "img" / "og-card.png", optimize=True)
 
 

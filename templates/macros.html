@@ -14,14 +14,17 @@
 {%- endmacro %}
 
 {% macro article(a, badges) -%}
-<article class="pub" id="{{ a.id }}">
+<article class="pub pub-dated" id="{{ a.id }}">
+  <span class="pub-year">{{ a.year }}</span>
+  <div>
   <h3 class="pub-title"><a href="{{ a.url }}">{{ a.title }}</a></h3>
   <p class="pub-authors">{{ authors(a.authors) }}</p>
-  <p class="pub-venue"><i>{{ a.journal }}</i>, {{ a.volume }}({{ a.issue }}), {{ a.pages }}, {{ a.year }}</p>
+  <p class="pub-venue"><i>{{ a.journal }}</i>, {{ a.volume }}({{ a.issue }}), {{ a.pages }}</p>
   {{ badge_list(a.badges, badges) }}
   {%- if a.media %}
   <p class="pub-media">Covered in {% for m in a.media %}{% if not loop.first %}{% if loop.last %} and {% else %}, {% endif %}{% endif %}<a href="{{ m.url }}">{{ m.outlet }}</a> ({{ m.year }}){% endfor %}</p>
   {%- endif %}
+  </div>
 </article>
 {%- endmacro %}
 

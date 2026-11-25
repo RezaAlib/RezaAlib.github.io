@@ -17,12 +17,16 @@ cv: /files/Reza-Alibakhshi-CV.pdf
 
 profiles:
   - label: Google Scholar
+    icon: scholar
     url: https://scholar.google.com/citations?user=sjgxTrwAAAAJ&hl=en
   - label: ORCID
+    icon: orcid
     url: https://orcid.org/0000-0002-5380-5094
   - label: LinkedIn
+    icon: linkedin
     url: https://www.linkedin.com/in/reza-alibakhshi-20b67090/
   - label: GitHub
+    icon: github
     url: https://github.com/RezaAlib
 
 # One or two sentences under your name.
