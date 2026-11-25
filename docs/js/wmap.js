@@ -21,7 +21,7 @@
     root.querySelectorAll('.country[data-country="' + id + '"]').forEach(function (p) { p.classList.add("is-active"); });
     tip.hidden = false;
     var scale = svg.clientWidth / vb.width;
-    var x = centres[id][0] * scale, y = centres[id][1] * scale;
+    var x = (centres[id][0] - vb.x) * scale, y = (centres[id][1] - vb.y) * scale;
     var w = tip.offsetWidth, h = tip.offsetHeight, W = root.clientWidth;
     var left = x + 18;
     if (left + w > W) left = Math.max(0, x - w - 18);

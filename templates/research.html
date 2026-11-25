@@ -28,38 +28,33 @@
 <section class="section section-wide" aria-labelledby="h-collab">
   <h2 id="h-collab">Coauthors</h2>
   <div class="body">
-    <p class="page-note">Countries are shaded by the number of coauthors affiliated there. Point to a shaded country to see who they are, ordered by the number of papers we have written together.</p>
+    <p class="page-note">Countries are shaded by the number of coauthors affiliated there. Point to a shaded country to see who they are.</p>
     <div class="wmap" data-wmap>
-      <svg viewBox="0 0 {{ wmap.width }} {{ wmap.height }}" aria-labelledby="wmap-title" role="group">
+      <svg viewBox="{{ wmap.viewbox }}" aria-labelledby="wmap-title" role="group">
         <title id="wmap-title">Map of coauthors by country</title>
         {% for c in wmap.shapes %}
         {% if c.info %}
-        <path class="country bin-{{ c.info.bin }}" d="{{ c.d }}" data-country="{{ c.id }}" tabindex="0" aria-label="{{ c.info.name }}, {{ c.info.count }} {{ 'coauthor' if c.info.count == 1 else 'coauthors' }}"/>
+        <path class="country bin-{{ c.info.bin }}" d="{{ c.d }}" data-country="{{ c.id }}" tabindex="0" aria-label="{{ c.info.name }}: {% for person in c.info.people %}{{ person.name }}{% if not loop.last %}, {% endif %}{% endfor %}"/>
         {% else %}
         <path class="country" d="{{ c.d }}" aria-hidden="true"/>
         {% endif %}
         {% endfor %}
         {% for c in wmap.shapes if c.info %}
-        <circle class="hit" cx="{{ c.cx }}" cy="{{ c.cy }}" r="16" data-country="{{ c.id }}" aria-hidden="true"/>
+        <circle class="hit" cx="{{ c.cx }}" cy="{{ c.cy }}" r="{{ wmap.hit_r }}" data-country="{{ c.id }}" aria-hidden="true"/>
         {% endfor %}
       </svg>
       {% for k in wmap.countries %}
-      <div class="wmap-tip" id="tip-{{ k.id }}" data-for="{{ k.id }}" hidden>
-        <p class="tip-head">{{ k.name }}<span>{{ k.count }} {{ 'coauthor' if k.count == 1 else 'coauthors' }}</span></p>
+      <div class="wmap-tip" data-for="{{ k.id }}" hidden>
+        <p class="tip-head">{{ k.name }}</p>
         <ul>
-          {% for person in k.people %}<li><strong>{{ person.name }}</strong>, {{ person.affiliation }}<span>{{ person.joint }} joint {{ 'paper' if person.joint == 1 else 'papers' }}</span></li>{% endfor %}
+          {% for person in k.people %}<li><strong>{{ person.name }}</strong><span>{{ person.affiliation }}</span></li>{% endfor %}
         </ul>
       </div>
       {% endfor %}
-      <ul class="wmap-legend" aria-hidden="true">
-        <li><span class="swatch bin-1"></span>1 coauthor</li>
-        <li><span class="swatch bin-2"></span>2–3</li>
-        <li><span class="swatch bin-3"></span>4 or more</li>
-      </ul>
     </div>
-    <ul class="wmap-list">
+    <ul class="sr-only">
       {% for k in wmap.countries %}
-      <li data-country="{{ k.id }}"><span class="c-name">{{ k.name }}</span> {% for person in k.people %}{{ person.name }} ({{ person.joint }}){% if not loop.last %}, {% endif %}{% endfor %}</li>
+      <li>{{ k.name }}: {% for person in k.people %}{{ person.name }}, {{ person.affiliation }}{% if not loop.last %}; {% endif %}{% endfor %}</li>
       {% endfor %}
     </ul>
   </div>

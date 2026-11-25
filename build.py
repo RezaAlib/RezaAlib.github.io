@@ -57,7 +57,26 @@ def coauthor_map(r):
     # draw shaded countries last so their outlines sit on top
     shapes.sort(key=lambda x: x["info"] is not None)
     countries = sorted(by_country.items(), key=lambda kv: (-kv[1]["count"], kv[1]["name"]))
+
+    # Frame the map on the coauthors' countries, with some margin and a sensible shape.
+    boxes = [c["bounds"] for c in world["countries"] if c.get("id") in by_country]
+    x0, y0 = min(b[0] for b in boxes), min(b[1] for b in boxes)
+    x1, y1 = max(b[2] for b in boxes), max(b[3] for b in boxes)
+    w, h = x1 - x0, y1 - y0
+    pad = 0.07 * max(w, h)
+    x0, y0, w, h = x0 - pad, y0 - pad, w + 2 * pad, h + 2 * pad
+    ratio = 2.3
+    if w / h > ratio:
+        extra = w / ratio - h
+        y0, h = y0 - extra / 2, h + extra
+    elif w / h < 1.4:
+        extra = h * 1.4 - w
+        x0, w = x0 - extra / 2, w + extra
+    x0, y0 = max(0, x0), max(0, y0)
+    w, h = min(w, world["width"] - x0), min(h, world["height"] - y0)
+    viewbox = f"{x0:.1f} {y0:.1f} {w:.1f} {h:.1f}"
     return {"width": world["width"], "height": world["height"], "shapes": shapes,
+            "viewbox": viewbox, "hit_r": round(max(w, 100) / 60, 1),
             "countries": [dict(id=k, **v) for k, v in countries]}
 
 

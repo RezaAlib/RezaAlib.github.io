@@ -2,7 +2,7 @@
 {% block main %}
 <header class="page-head">
   <h1>Teaching</h1>
-  <p>At IE Business School, I teach Digital Transformation in the Global Online MBA, Business-Driven Information Technology in the Bachelor in Business Analytics, and an advanced seminar on user-generated content in social media platforms. At HEC Paris, I taught an introductory course on programming in Python in the Master in Management.</p>
+  <p>At IE Business School, I teach seminars in information systems in the PhD in Management, Digital Transformation in the Global Online MBA, Business-Driven Information Technology in the Bachelor in Business Analytics, and an advanced seminar on user-generated content in social media platforms. At HEC Paris, I taught an introductory course on programming in Python in the Master in Management.</p>
 </header>
 
 <section class="section" aria-labelledby="h-courses">
@@ -11,7 +11,7 @@
     {% for c in t.courses %}
     <div class="course">
       <h3>{{ c.title }}</h3>
-      <p>{{ c.program }}, {{ c.school }}, {{ c.years }}</p>
+      <p>{{ c.program }}, {{ c.school }}{% if c.years %}, {{ c.years }}{% endif %}</p>
       {% if c.note %}<p class="note">{{ c.note }}</p>{% endif %}
     </div>
     {% endfor %}
