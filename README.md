@@ -16,7 +16,7 @@ Personal academic website of Reza Alibakhshi, served by GitHub Pages from the `d
 ## Updating the site
 
 1. Edit the relevant file in `data/` (for example, add a new article to `journal_articles` in `research.yml`).
-2. Run `python3 build.py --domain www.ralibakhshi.com` (requires `pip install jinja2 pyyaml`).
+2. Run `python3 build.py --domain ralibakhshi.com` (requires `pip install jinja2 pyyaml`).
 3. Commit both the data change and the rebuilt `docs/` folder, and push to `main`. GitHub Pages publishes within a few minutes.
 
 To replace the CV, overwrite `static/files/Reza-Alibakhshi-CV.pdf` and rebuild.
