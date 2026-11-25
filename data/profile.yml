@@ -1,0 +1,78 @@
+# Who you are, how to reach you, and the short texts on the home page.
+name: Reza Alibakhshi
+given_name: Reza
+family_name: Alibakhshi
+position: Assistant Professor of Information Systems
+department: Department of Information Systems and Technology
+institution: IE Business School
+city: Madrid
+email: reza.alibakhshi@ie.edu
+address:
+  - IE Business School
+  - Calle María de Molina 12, 4º Derecha
+  - 28006 Madrid, Spain
+site_url: https://www.ralibakhshi.com
+photo_alt: Portrait of Reza Alibakhshi
+cv: /files/Reza-Alibakhshi-CV.pdf
+
+profiles:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=sjgxTrwAAAAJ&hl=en
+  - label: ORCID
+    url: https://orcid.org/0000-0002-5380-5094
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/reza-alibakhshi-20b67090/
+  - label: GitHub
+    url: https://github.com/RezaAlib
+
+# One or two sentences under your name.
+statement: >-
+  I study how the emotional and creative qualities of user-generated content
+  shape engagement on social media platforms, and how platforms, through new
+  features, monetization and generative AI, change what people create.
+
+# Home page, "Research" paragraphs.
+research_summary:
+  - >-
+    My work sits where user behavior meets platform economics. One line of
+    research measures emotion in the images, text and video that people post
+    and asks how its dynamics relate to engagement, whether that is the gap
+    between what a post shows and what it says, the way emotion shifts from
+    one post to the next, or the arc a short video follows in a few seconds.
+  - >-
+    A second line studies platform decisions and their consequences for
+    creators and audiences, such as the introduction of a stories feature or
+    of NFTs as a way for creators to earn money. More recent projects look at
+    generative AI and the value of human creative work, and at how
+    institutions respond when AI systems fail.
+  - >-
+    Methodologically, I combine econometrics and causal inference on large
+    observational datasets, often built from unstructured video, image and
+    text, with experimental designs and computationally intensive theory
+    building.
+
+# Home page, "Background".
+background:
+  - >-
+    I joined IE Business School in September 2022, after completing my PhD in
+    Information Systems and Operations Management at HEC Paris.
+  - >-
+    Before academia I spent several years building information systems in
+    Tehran. At Kheili Sabz Publishing Group (2015 to 2017) I worked on
+    databases, data warehouses and business intelligence dashboards and
+    designed the back end of a nationwide online exam system. I also worked
+    as a consultant on enterprise architecture projects for Iran's
+    Information Technology Organization (2016) and for Maskan Bank (2013 to
+    2014).
+  - I speak Farsi and English, and French at B2 level.
+
+education:
+  - degree: PhD, Information Systems and Operations Management
+    school: HEC Paris
+    years: 2017–2022
+  - degree: MBA, Management Information Systems
+    school: University of Tehran
+    years: 2013–2017
+  - degree: BSc, Chemical Engineering
+    school: Sharif University of Technology
+    years: 2008–2013

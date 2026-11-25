@@ -1,0 +1,34 @@
+{% macro authors(list) -%}
+{%- for a in list -%}
+{%- if not loop.first %}{% if loop.last %} and {% else %}, {% endif %}{% endif -%}
+{%- if a == me %}<span class="me">{{ a }}</span>{% else %}{{ a }}{% endif -%}
+{%- endfor -%}
+{%- endmacro %}
+
+{% macro badge_list(keys, badges) -%}
+<ul class="badges" aria-label="Journal rankings">
+  {%- for k in keys %}{% set b = badges[k] %}
+  <li class="badge" style="background:{{ b.bg }};color:{{ b.fg }}">{{ b.label }}</li>
+  {%- endfor %}
+</ul>
+{%- endmacro %}
+
+{% macro article(a, badges) -%}
+<article class="pub" id="{{ a.id }}">
+  <h3 class="pub-title"><a href="{{ a.url }}">{{ a.title }}</a></h3>
+  <p class="pub-authors">{{ authors(a.authors) }}</p>
+  <p class="pub-venue"><i>{{ a.journal }}</i>, {{ a.volume }}({{ a.issue }}), {{ a.pages }}, {{ a.year }}</p>
+  {{ badge_list(a.badges, badges) }}
+  {%- if a.media %}
+  <p class="pub-media">Covered in {% for m in a.media %}{% if not loop.first %}{% if loop.last %} and {% else %}, {% endif %}{% endif %}<a href="{{ m.url }}">{{ m.outlet }}</a> ({{ m.year }}){% endfor %}</p>
+  {%- endif %}
+</article>
+{%- endmacro %}
+
+{% macro work(w) -%}
+<article class="wp" id="{{ w.id }}">
+  <p class="wp-venue">{% if w.venue %}<strong>{{ w.venue }}</strong>, {{ w.status|lower }}{% else %}<strong>Working paper</strong>, {{ w.status|lower }}{% endif %}</p>
+  <p class="wp-summary">{{ w.summary }}</p>
+  <p class="wp-authors">{{ authors(w.authors) }}</p>
+</article>
+{%- endmacro %}

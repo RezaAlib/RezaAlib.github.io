@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% import "macros.html" as m %}
+{% block main %}
+<header class="page-head">
+  <h1>Research</h1>
+  <p>I study user-generated content and the economics of social media platforms, using econometrics, causal inference and large-scale video, image and text data.</p>
+  <p class="aside">Authors are listed by relative contribution.</p>
+</header>
+
+<section class="section" aria-labelledby="h-articles">
+  <h2 id="h-articles">Journal articles</h2>
+  <div class="body">
+    {% for a in r.journal_articles %}{{ m.article(a, r.badges) }}{% endfor %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-progress">
+  <h2 id="h-progress">Papers in progress</h2>
+  <div class="body">
+    <p class="page-note">Titles are omitted for papers that are not yet published.</p>
+    <h3>Under review</h3>
+    {% for w in r.in_progress if w.stage == 'review' %}{{ m.work(w) }}{% endfor %}
+    <h3>In preparation</h3>
+    {% for w in r.in_progress if w.stage != 'review' %}{{ m.work(w) }}{% endfor %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-collab">
+  <h2 id="h-collab">Coauthors</h2>
+  <div class="body">
+    <div class="collab" data-collab>
+      <svg viewBox="{{ net.viewbox }}" role="img" aria-labelledby="net-title net-desc">
+        <title id="net-title">Collaboration map</title>
+        <desc id="net-desc">Reza Alibakhshi at the centre, linked to {{ net.people|length }} coauthors. Line thickness shows the number of joint papers. The same information is listed next to the map.</desc>
+        <defs>
+          <clipPath id="centre-clip"><circle cx="{{ net.cx }}" cy="{{ net.cy }}" r="{{ net.cr }}"/></clipPath>
+        </defs>
+        {% for n in net.people %}
+        <g class="person" data-person="{{ n.key }}">
+          <line class="spoke" x1="{{ net.cx }}" y1="{{ net.cy }}" x2="{{ n.x }}" y2="{{ n.y }}" stroke-width="{{ n.w }}"/>
+          <circle class="node" cx="{{ n.x }}" cy="{{ n.y }}" r="{{ n.r }}"/>
+          <text class="count" x="{{ n.x }}" y="{{ n.y + 4 }}" text-anchor="middle">{{ n.count }}</text>
+          <text class="label" x="{{ n.lx }}" y="{{ n.ly }}" text-anchor="{{ n.anchor }}">{{ n.name }}</text>
+          <text class="label-sub" x="{{ n.lx }}" y="{{ n.ly + 15 }}" text-anchor="{{ n.anchor }}">{{ n.affiliation }}</text>
+          <text class="label-short" x="{{ n.lx }}" y="{{ n.ly + 8 }}" text-anchor="{{ n.anchor }}">{{ n.name.split()[-1] }}</text>
+        </g>
+        {% endfor %}
+        <image href="/img/reza-avatar-160.jpg" x="{{ net.cx - net.cr }}" y="{{ net.cy - net.cr }}" width="{{ net.cr * 2 }}" height="{{ net.cr * 2 }}" clip-path="url(#centre-clip)" preserveAspectRatio="xMidYMid slice"/>
+        <circle class="centre-ring" cx="{{ net.cx }}" cy="{{ net.cy }}" r="{{ net.cr }}"/>
+      </svg>
+      <ul class="collab-list">
+        {% for n in net.people %}
+        <li tabindex="0" data-person="{{ n.key }}">
+          <p class="who">{{ n.name }}</p>
+          <p class="where">{{ n.full_affiliation }}</p>
+          <p class="joint">{{ n.summary }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-proc">
+  <h2 id="h-proc">Refereed proceedings</h2>
+  <div class="body">
+    {% for c in r.proceedings %}
+    <article class="pub">
+      <h3 class="pub-title"><a href="{{ c.url }}">{{ c.title }}</a></h3>
+      <p class="pub-authors">{{ m.authors(c.authors) }}</p>
+      <p class="pub-venue"><i>{{ c.venue }}</i>, {{ c.year }}{% if c.note %}. <span class="flag">{{ c.note }}</span>{% endif %}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-talks">
+  <h2 id="h-talks">Talks and presentations</h2>
+  <div class="body">
+    <ul class="dated">
+      {% for k in r.talks %}
+      <li><span class="when">{{ k.date }}</span><p class="what">{{ k.event }}<small>{{ k.place }}</small></p></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}<script src="/js/collab.js?v={{ version }}" defer></script>{% endblock %}

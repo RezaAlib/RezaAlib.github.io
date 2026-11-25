@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ description }}">
+<link rel="canonical" href="{{ p.site_url }}{{ path }}">
+<meta name="author" content="{{ p.name }}">
+<meta property="og:type" content="{{ 'profile' if path == '/' else 'website' }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="{{ p.site_url }}{{ path }}">
+<meta property="og:image" content="{{ p.site_url }}/img/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#00338d">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/piazzolla-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/css/site.css?v={{ version }}">
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="/">{{ p.name }}</a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        {% for item in nav %}
+        <li><a href="{{ item.href }}"{% if item.href == path %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main" class="wrap">
+{% block main %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>{{ p.name }}, {{ p.institution }}, {{ p.city }}<br><a href="mailto:{{ p.email }}">{{ p.email }}</a></p>
+    <ul>
+      {% for prof in p.profiles %}<li><a href="{{ prof.url }}" rel="me">{{ prof.label }}</a></li>{% endfor %}
+    </ul>
+    <p>Last updated {{ updated }}</p>
+  </div>
+</footer>
+{% block scripts %}{% endblock %}
+</body>
+</html>

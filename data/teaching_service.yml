@@ -1,0 +1,87 @@
+# Teaching, recognition and service.
+
+courses:
+  - title: Digital Transformation
+    program: Global Online MBA
+    school: IE Business School
+    years: 2022–present
+    rating: "4.78"
+    note: Dean’s Teaching Commendation, 2024 and 2025
+  - title: Business-Driven Information Technology
+    program: Bachelor in Business Analytics
+    school: IE Business School
+    years: 2022–present
+    rating: "4.3"
+  - title: User-Generated Content in Social Media Platforms
+    program: Open Advanced Seminars
+    school: IE Business School
+    years: 2023–present
+    rating: "4.96"
+  - title: Digital Management, an introduction to programming in Python
+    program: Master in Management (Grande École)
+    school: HEC Paris
+    years: 2020–2021
+    rating: "4.30"
+
+# Shown on the home page and, where relevant, on Teaching and Service.
+recognition:
+  - award: Best Associate Editor Award
+    detail: ICIS 2025, Nashville, Data Analytics for Business track
+    year: "2025"
+    group: service
+  - award: Best Associate Editor Award
+    detail: ECIS 2025, Amman, Co-Creating Value for an Intelligent Digital Future track
+    year: "2025"
+    group: service
+  - award: IE Award for Excellence in Teaching
+    detail: IE University
+    year: "2024–25 and 2025–26"
+    group: teaching
+  - award: Dean’s Teaching Commendation
+    detail: Digital Transformation, Global Online MBA
+    year: "2024 and 2025"
+    group: teaching
+  - award: Best Paper Proceedings
+    detail: Academy of Management Annual Meeting, CTO Division
+    year: "2023"
+    group: research
+  - award: Outstanding Reviewer
+    detail: European Journal of Information Systems
+    year: "2022"
+    group: service
+  - award: Best Reviewer Award
+    detail: ICIS 2019, Munich, Governance, Strategy, and Value of IS track
+    year: "2019"
+    group: service
+  - award: Best Reviewer Award
+    detail: 17th Workshop on e-Business (WeB), Santa Clara
+    year: "2018"
+    group: service
+
+associate_editor:
+  - {conference: "ECIS 2027", place: "Luxembourg", track: "General Track"}
+  - {conference: "ECIS 2026", place: "Milan, Italy", track: "IS Innovation, Adoption and Diffusion"}
+  - {conference: "ICIS 2025", place: "Nashville, USA", track: "Data Analytics for Business", award: "Best Associate Editor"}
+  - {conference: "ECIS 2025", place: "Amman, Jordan", track: "Co-Creating Value for an Intelligent Digital Future", award: "Best Associate Editor"}
+  - {conference: "ICIS 2024", place: "Bangkok, Thailand", track: "Social Media and Digital Collaboration"}
+
+program_committees:
+  - ACM SIGMIS Computers and People Research Conference (CPR)
+  - Pre-ICIS Workshop on e-Business (WeB)
+
+session_chair:
+  - {year: "2024", event: "ICIS 2024", session: "Social Media and Digital Collaboration"}
+  - {year: "2023", event: "AOM 2023, CTO Division", session: "Customer Satisfaction and Engagement"}
+  - {year: "2021", event: "AOM 2021, OCIS Division", session: "The Present and Future of Social Media Platforms"}
+  - {year: "2021", event: "Hi! PARIS Summer School", session: "Industry panel, moderator"}
+
+reviewer_journals:
+  - MIS Quarterly
+  - Information Systems Research
+  - Journal of Management Information Systems
+  - Journal of the Association for Information Systems
+  - European Journal of Information Systems
+  - International Journal of Electronic Commerce
+  - Journal of Electronic Commerce Research
+
+reviewer_conferences: [ICIS, ECIS, AMCIS, PACIS, AOM, Pre-ICIS Workshop on e-Business, ACM SIGMIS CPR]

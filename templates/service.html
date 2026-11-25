@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block main %}
+<header class="page-head">
+  <h1>Service</h1>
+  <p>I serve the information systems community as an associate editor for its main conferences and as a reviewer for its leading journals.</p>
+</header>
+
+<section class="section" aria-labelledby="h-ae">
+  <h2 id="h-ae">Associate editor</h2>
+  <div class="body">
+    <ul class="dated">
+      {% for e in t.associate_editor %}
+      <li><span class="when">{{ e.conference }}</span><p class="what">{{ e.track }}<small>{{ e.place }}{% if e.award %}. <span class="flag">{{ e.award }} Award</span>{% endif %}</small></p></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-review">
+  <h2 id="h-review">Reviewing</h2>
+  <div class="body">
+    <h3>Journals</h3>
+    <ul class="inline-list">
+      {% for j in t.reviewer_journals %}<li>{{ j }}</li>{% endfor %}
+    </ul>
+    <h3>Conferences</h3>
+    <p>{{ t.reviewer_conferences|join(', ') }}</p>
+    <h3>Reviewer awards</h3>
+    <ul class="dated">
+      {% for a in t.recognition if a.group == 'service' and 'Review' in a.award %}
+      <li><span class="when">{{ a.year }}</span><p class="what">{{ a.award }}<small>{{ a.detail }}</small></p></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-pc">
+  <h2 id="h-pc">Program committees</h2>
+  <div class="body">
+    <ul class="inline-list">
+      {% for c in t.program_committees %}<li>{{ c }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-chair">
+  <h2 id="h-chair">Session chair and moderator</h2>
+  <div class="body">
+    <ul class="dated">
+      {% for s in t.session_chair %}
+      <li><span class="when">{{ s.year }}</span><p class="what">{{ s.session }}<small>{{ s.event }}</small></p></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

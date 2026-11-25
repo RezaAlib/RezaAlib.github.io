@@ -1,0 +1,182 @@
+# Research content. Authors are listed by relative contribution.
+# Your own name is written exactly as "Reza Alibakhshi" so the page can highlight it.
+
+journal_articles:
+  - id: jais2025
+    authors: [Reza Alibakhshi, Shirish C. Srivastava]
+    year: 2025
+    title: How Sentiment Divergence in Influencers’ Multimodal Social Media Posts Shapes Follower Engagement?
+    journal: Journal of the Association for Information Systems
+    journal_short: JAIS
+    short: Sentiment divergence in multimodal influencer posts
+    volume: 26
+    issue: 4
+    pages: 1081–1137
+    url: https://aisel.aisnet.org/jais/vol26/iss4/4/
+    badges: [abdc, ajg4star]
+  - id: jmis2022
+    authors: [Reza Alibakhshi, Shirish C. Srivastava]
+    year: 2022
+    title: "Post-Story: Influence of Introducing Story Feature on Social Media Posts"
+    journal: Journal of Management Information Systems
+    journal_short: JMIS
+    short: Introducing a story feature on social media
+    volume: 39
+    issue: 2
+    pages: 573–601
+    url: https://www.tandfonline.com/doi/full/10.1080/07421222.2022.2063550
+    badges: [ft50, abdc, ajg4]
+    media:
+      - outlet: IE Insights
+        year: 2024
+        url: https://www.ie.edu/insights/articles/one-story-doesnt-fit-all-for-platforms-complementors/
+      - outlet: Knowledge@HEC
+        year: 2023
+        url: https://www.hec.edu/en/using-innovations-social-media-more-engagement-be-aware-cultural-differences
+
+# Badge labels and colors, as specified by Reza.
+badges:
+  ft50:     {label: "FT50",           bg: "#F4CC9E", fg: "#000000"}
+  abdc:     {label: "ABDC: A*",       bg: "#245292", fg: "#FFFFFF"}
+  ajg4star: {label: "ABS (AJG): 4*",  bg: "#7BC5D0", fg: "#18233A"}
+  ajg4:     {label: "ABS (AJG): 4",   bg: "#7BC5D0", fg: "#18233A"}
+
+# Papers under review and in progress. Titles are deliberately not shown.
+in_progress:
+  - id: misq-variability
+    authors: [Reza Alibakhshi, Shirish C. Srivastava, Sunil Mithas]
+    stage: review
+    status: Third-round major revision
+    venue: MIS Quarterly
+    short: Emotional variability in video ads
+    summary: >-
+      Video ads rarely hold a single emotional tone from start to finish.
+      This paper examines how variability in the emotions a video ad
+      expresses over its course relates to viewership and to user engagement.
+  - id: isr-arcs
+    authors: [Reza Alibakhshi, Haris Krijestorac, Shirish C. Srivastava]
+    stage: review
+    status: Second-round major revision
+    venue: Information Systems Research
+    short: Emotional arcs in short-form video
+    summary: >-
+      A short-form video unfolds as an emotional arc that rises and falls
+      within seconds. This paper traces how the shape of that arc relates to
+      engagement, from first capturing a viewer’s attention to prompting them
+      to act.
+  - id: jais-nft
+    authors: [Reza Alibakhshi, Shirish C. Srivastava, Olivier Chatain]
+    stage: review
+    status: Under first-round review
+    venue: Journal of the Association for Information Systems
+    short: NFTs as creator monetization
+    summary: >-
+      Free social media platforms have started to give creators direct ways
+      to earn money from their content. Using the introduction of
+      non-fungible tokens (NFTs) as a monetization mechanism, this paper
+      examines how the arrival of money changes content creation on a
+      platform.
+  - id: misq-ai-failures
+    authors: [Anuragini Shirish, Reza Alibakhshi, Shirish C. Srivastava]
+    stage: review
+    status: Under first-round review
+    venue: MIS Quarterly, special issue on ethics, regulation and policy
+    short: Institutional responses to AI hallucinations
+    summary: >-
+      AI hallucinations, outputs that are fluent and confident but false,
+      have begun to surface in legal practice. This paper examines how
+      institutions respond to these failures and what their responses imply
+      for governing work that is mediated by AI.
+  - id: jmis-temporal
+    authors: [Reza Alibakhshi, Shirish C. Srivastava]
+    stage: preparing
+    status: In preparation for submission
+    venue: Journal of Management Information Systems
+    short: Emotional variation across influencer posts
+    summary: >-
+      Followers of an influencer experience a stream of posts over time
+      rather than one post in isolation. This paper examines how temporal
+      variation in the emotions expressed across an influencer’s posts
+      relates to engagement in influencer-centered communities.
+  - id: wp-nft-creativity
+    authors: [Haris Krijestorac, Reza Alibakhshi, Shirish C. Srivastava]
+    stage: working
+    status: Data analysis
+    venue: ""
+    short: Creativity and delayed rewards in the NFT market
+    summary: >-
+      Using data from the NFT art market, this project asks whether creative
+      work is rewarded immediately or whether its rewards arrive with a delay.
+  - id: wp-genai-value
+    authors: [Reza Alibakhshi, Dominik Gutt]
+    stage: working
+    status: Draft in preparation
+    venue: ""
+    short: Generative AI and the value of human creative work
+    summary: >-
+      As visual generative AI spreads, this project studies how it affects
+      the valuation of creative work made by people.
+
+proceedings:
+  - authors: [Reza Alibakhshi, Shirish C. Srivastava, Sunil Mithas]
+    year: 2023
+    title: "User Engagement with Social Media Videos: Theorizing the Role of Variability in Continuous Emotional Expressions"
+    venue: Academy of Management Proceedings
+    note: Best Paper Proceedings, CTO Division
+    url: https://journals.aom.org/doi/abs/10.5465/AMPROC.2023.160bp
+  - authors: [Reza Alibakhshi, Shirish C. Srivastava]
+    year: 2021
+    title: "Why Your Past Matters: Disentangling the Influence of “Static” and “Dynamic” Emotional Properties in Social Media Content on User Engagement"
+    venue: International Conference on Information Systems (ICIS), Austin
+    url: https://aisel.aisnet.org/icis2021/user_behaivors/user_behaivors/8/
+  - authors: [Reza Alibakhshi, Shirish C. Srivastava]
+    year: 2021
+    title: "Is ‘New’ Always ‘Nicer’? Examining the Influence of Innovation in Social Media"
+    venue: Academy of Management Proceedings
+    url: https://journals.aom.org/doi/10.5465/AMBPP.2021.10861abstract
+  - authors: [Reza Alibakhshi, Shirish C. Srivastava]
+    year: 2020
+    title: "Examining the Influence of Product Innovation on Social Media Platforms: Evidence from Instagram"
+    venue: ACM SIGMIS CPR Conference, Nuremberg
+    url: https://dl.acm.org/doi/abs/10.1145/3378539.3393836
+  - authors: [Reza Alibakhshi, Shirish C. Srivastava]
+    year: 2019
+    title: "Should We Say What We Show? Examining the Influence of Image and Text Sentiments on Social Media Engagement"
+    venue: International Conference on Information Systems (ICIS), Munich
+    url: https://aisel.aisnet.org/icis2019/behavior_is/behavior_is/18/
+
+# Coauthors, for the collaboration map. Affiliations checked November 2026.
+coauthors:
+  - name: Shirish C. Srivastava
+    affiliation: HEC Paris
+  - name: Haris Krijestorac
+    affiliation: HEC Paris
+  - name: Olivier Chatain
+    affiliation: HEC Paris
+  - name: Sunil Mithas
+    affiliation: University of South Florida
+  - name: Anuragini Shirish
+    affiliation: Institut Mines-Télécom Business School
+    map_affiliation: IMT Business School
+  - name: Dominik Gutt
+    affiliation: RWTH Aachen University
+
+talks:
+  - {date: "June 2026", year: 2026, event: "Symposium on Statistical Challenges in Electronic Commerce Research (SCECR)", place: "Tokyo, Japan"}
+  - {date: "June 2025", year: 2025, event: "European IS Workshop, Tilburg University (TiSEM)", place: "Tilburg, Netherlands"}
+  - {date: "October 2024", year: 2024, event: "Strategic Management Society (SMS) 44th Annual Conference", place: "Istanbul, Turkey"}
+  - {date: "August 2023", year: 2023, event: "Academy of Management Annual Meeting", place: "Boston, USA (virtual)"}
+  - {date: "June 2023", year: 2023, event: "Symposium on Statistical Challenges in Electronic Commerce Research (SCECR)", place: "Bogotá, Colombia"}
+  - {date: "March 2023", year: 2023, event: "Warwick Business School, digital marketing guest lecture", place: "Coventry, UK"}
+  - {date: "December 2022", year: 2022, event: "Workshop on Information Technologies and Systems (WITS)", place: "Copenhagen, Denmark"}
+  - {date: "November 2022", year: 2022, event: "European IS Workshop, Warwick Business School", place: "Coventry, UK"}
+  - {date: "January 2022", year: 2022, event: "Research seminar, Tilburg School of Economics and Management", place: "Tilburg, Netherlands"}
+  - {date: "January 2022", year: 2022, event: "Research seminar, IE Business School", place: "Madrid, Spain"}
+  - {date: "January 2022", year: 2022, event: "Research seminar, IESE Business School", place: "Barcelona, Spain"}
+  - {date: "December 2021", year: 2021, event: "International Conference on Information Systems (ICIS)", place: "Austin, USA"}
+  - {date: "August 2021", year: 2021, event: "Academy of Management Annual Meeting", place: "Virtual"}
+  - {date: "July 2021", year: 2021, event: "Hi! PARIS Summer School, industry panel moderator", place: "Paris, France"}
+  - {date: "June 2020", year: 2020, event: "ACM SIGMIS CPR Conference", place: "Nuremberg, Germany"}
+  - {date: "May 2020", year: 2020, event: "HEC Paris S&O Research Day", place: "Paris, France"}
+  - {date: "February 2020", year: 2020, event: "HEC Paris Data Day", place: "Paris, France"}
+  - {date: "December 2019", year: 2019, event: "International Conference on Information Systems (ICIS)", place: "Munich, Germany"}

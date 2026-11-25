@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block main %}
+<header class="page-head">
+  <h1>Teaching</h1>
+  <p>At IE Business School I teach digital transformation and business-driven information technology to MBA and bachelor’s students, and an advanced seminar on user-generated content and social media platforms. At HEC Paris I taught an introduction to programming in Python.</p>
+</header>
+
+<section class="section" aria-labelledby="h-courses">
+  <h2 id="h-courses">Courses</h2>
+  <div class="body">
+    {% for c in t.courses %}
+    <div class="course">
+      <h3>{{ c.title }}</h3>
+      <p>{{ c.program }}, {{ c.school }}, {{ c.years }}</p>
+      <p class="rating">Average student evaluation {{ c.rating }} out of 5</p>
+      {% if c.note %}<p class="note">{{ c.note }}</p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-teach-awards">
+  <h2 id="h-teach-awards">Teaching awards</h2>
+  <div class="body">
+    <ul class="dated">
+      {% for a in t.recognition if a.group == 'teaching' %}
+      <li><span class="when">{{ a.year }}</span><p class="what">{{ a.award }}<small>{{ a.detail }}</small></p></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}

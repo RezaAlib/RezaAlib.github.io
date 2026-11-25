@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% import "macros.html" as m %}
+{% block head %}
+<script type="application/ld+json">{{ jsonld }}</script>
+{% endblock %}
+{% block main %}
+<section class="hero" aria-labelledby="name">
+  <div>
+    <h1 id="name"><span>{{ p.given_name }}</span> <span>{{ p.family_name }}</span></h1>
+    <p class="position">{{ p.position }}<span>{{ p.institution }}, {{ p.city }}</span></p>
+    <p class="statement">{{ p.statement }}</p>
+    <ul class="hero-links">
+      <li><a href="mailto:{{ p.email }}">{{ p.email }}</a></li>
+      <li><a href="{{ p.cv }}">CV</a></li>
+      {% for prof in p.profiles %}<li><a href="{{ prof.url }}" rel="me">{{ prof.label }}</a></li>{% endfor %}
+    </ul>
+  </div>
+  <figure class="portrait">
+    <picture>
+      <source type="image/webp" srcset="/img/reza-alibakhshi-480.webp 480w, /img/reza-alibakhshi-800.webp 800w, /img/reza-alibakhshi-1100.webp 1100w" sizes="(max-width: 52rem) 11rem, 24rem">
+      <img src="/img/reza-alibakhshi-800.jpg" srcset="/img/reza-alibakhshi-480.jpg 480w, /img/reza-alibakhshi-800.jpg 800w, /img/reza-alibakhshi-1100.jpg 1100w" sizes="(max-width: 52rem) 11rem, 24rem" width="800" height="1000" alt="{{ p.photo_alt }}" fetchpriority="high">
+    </picture>
+  </figure>
+</section>
+
+<section class="section" aria-labelledby="h-research">
+  <h2 id="h-research">Research</h2>
+  <div class="body">
+    {% for para in p.research_summary %}<p>{{ para }}</p>{% endfor %}
+    <p class="more"><a href="/research/">Publications, papers in progress and talks</a></p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-pubs">
+  <h2 id="h-pubs">Journal articles</h2>
+  <div class="body">
+    {% for a in r.journal_articles %}{{ m.article(a, r.badges) }}{% endfor %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-recognition">
+  <h2 id="h-recognition">Recognition</h2>
+  <div class="body">
+    <ul class="dated">
+      {% for a in t.recognition %}
+      <li><span class="when">{{ a.year }}</span><p class="what">{{ a.award }}<small>{{ a.detail }}</small></p></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-background">
+  <h2 id="h-background">Background</h2>
+  <div class="body">
+    {% for para in p.background %}<p>{{ para }}</p>{% endfor %}
+    <ul class="edu">
+      {% for e in p.education %}
+      <li><span class="when">{{ e.years }}</span><span>{{ e.degree }}<small>{{ e.school }}</small></span></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section contact" aria-labelledby="h-contact">
+  <h2 id="h-contact">Contact</h2>
+  <div class="body">
+    <p><a href="mailto:{{ p.email }}">{{ p.email }}</a></p>
+    <address>{% for line in p.address %}{{ line }}{% if not loop.last %}<br>{% endif %}{% endfor %}</address>
+  </div>
+</section>
+{% endblock %}
