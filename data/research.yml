@@ -36,10 +36,10 @@ journal_articles:
 
 # Badge labels and colors, as specified by Reza.
 badges:
-  ft50:     {label: "FT50",           bg: "#F4CC9E", fg: "#000000"}
-  abdc:     {label: "ABDC: A*",       bg: "#245292", fg: "#FFFFFF"}
-  ajg4star: {label: "ABS (AJG): 4*",  bg: "#7BC5D0", fg: "#18233A"}
-  ajg4:     {label: "ABS (AJG): 4",   bg: "#7BC5D0", fg: "#18233A"}
+  ft50:     {label: "FT50",           bg: "#F9B050", fg: "#000000"}
+  abdc:     {label: "ABDC: A*",       bg: "#0A4FA4", fg: "#FFFFFF"}
+  ajg4star: {label: "ABS (AJG): 4*",  bg: "#2CB4C5", fg: "#18233A"}
+  ajg4:     {label: "ABS (AJG): 4",   bg: "#2CB4C5", fg: "#18233A"}
 
 # Papers under review and in progress. Titles are deliberately not shown.
 in_progress:

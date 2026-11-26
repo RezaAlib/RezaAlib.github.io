@@ -7,19 +7,19 @@
 </header>
 
 <section class="section" aria-labelledby="h-articles">
-  <h2 id="h-articles">Journal articles</h2>
+  <h2 id="h-articles">Journal Articles</h2>
   <div class="body">
     {% for a in r.journal_articles %}{{ m.article(a, r.badges) }}{% endfor %}
   </div>
 </section>
 
 <section class="section" aria-labelledby="h-progress">
-  <h2 id="h-progress">Papers in progress</h2>
+  <h2 id="h-progress">Papers in Progress</h2>
   <div class="body">
     <p class="page-note">Titles are omitted for papers that are not yet published.</p>
-    <h3>Under review</h3>
+    <h3>Under Review</h3>
     {% for w in r.in_progress if w.stage == 'review' %}{{ m.work(w) }}{% endfor %}
-    <h3>In preparation</h3>
+    <h3>In Preparation</h3>
     {% for w in r.in_progress if w.stage != 'review' %}{{ m.work(w) }}{% endfor %}
   </div>
 </section>
@@ -60,7 +60,7 @@
 </section>
 
 <section class="section" aria-labelledby="h-proc">
-  <h2 id="h-proc">Refereed proceedings</h2>
+  <h2 id="h-proc">Refereed Proceedings</h2>
   <div class="body">
     {% for c in r.proceedings %}
     <article class="pub pub-dated">
@@ -76,7 +76,7 @@
 </section>
 
 <section class="section" aria-labelledby="h-talks">
-  <h2 id="h-talks">Talks and presentations</h2>
+  <h2 id="h-talks">Talks and Presentations</h2>
   <div class="body">
     <ul class="dated compact">
       {% for k in r.talks %}

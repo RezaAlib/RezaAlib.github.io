@@ -123,13 +123,13 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
 
 /* Hero */
 .hero {
-  display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
-  gap: clamp(2rem, 5vw, 4.5rem); align-items: center;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem); align-items: stretch;
   padding-top: clamp(2.5rem, 7vw, 5.5rem); padding-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 .hero h1 {
   font-family: var(--serif); font-weight: 500;
-  font-size: clamp(3.1rem, 8.6vw, 6.6rem); line-height: 0.94; letter-spacing: -0.025em;
+  font-size: clamp(2.48rem, 6.88vw, 5.28rem); line-height: 0.94; letter-spacing: -0.025em;
   color: var(--primary); margin: 0 0 1.6rem;
 }
 .hero h1 span { display: block; }
@@ -145,7 +145,7 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
   font-family: var(--sans); font-size: 0.9375rem;
 }
 .hero-links .icon-row { margin-left: -0.6rem; }
-/* Profile logos: 44px tap targets, logos in the text colour; ORCID keeps its own green. */
+/* Profile logos: 44px tap targets, each logo in its brand colour (set in icons.html). */
 .icon-link a {
   display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem;
   border-radius: 50%; color: var(--ink); text-decoration: none;
@@ -155,19 +155,24 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
 .icon-row { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 0.1rem; }
 .icon-row-small .icon-link svg { width: 1.2rem; height: 1.2rem; }
 .portrait { margin: 0; justify-self: end; width: 100%; max-width: 24rem; }
-.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 3px; background: #5d5f60; }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 22%; border-radius: 3px; background: #5d5f60; }
+/* Wide screens: the photo column is as wide as the text column and the photo fills the text block's height, so the two read as matching blocks. */
+@media (min-width: 52.0625rem) {
+  .portrait { position: relative; justify-self: stretch; max-width: none; min-height: 22rem; }
+  .portrait img { position: absolute; inset: 0; height: 100%; aspect-ratio: auto; }
+}
 
 /* Page title for inner pages */
 .page-head {
-  padding-top: clamp(2.75rem, 6vw, 4.5rem); padding-bottom: clamp(2.25rem, 4.5vw, 3.25rem); text-align: center;
+  padding-top: clamp(1.75rem, 3.5vw, 2.5rem); padding-bottom: clamp(1.6rem, 3.2vw, 2.25rem); text-align: center;
   background: var(--wash); box-shadow: 0 0 0 100vmax var(--wash); clip-path: inset(0 -100vmax);
 }
 .page-head h1 {
   font-weight: 500; font-size: clamp(2.5rem, 5.5vw, 3.75rem); line-height: 1; letter-spacing: -0.02em;
-  color: var(--primary); margin: 0 0 1.25rem;
+  color: var(--primary); margin: 0;
 }
 .page-head p { max-width: 38rem; margin: 0 auto; color: var(--ink); text-wrap: balance; }
-.page-head .aside { font-family: var(--sans); font-size: 0.9375rem; color: var(--muted); margin-top: 0.75rem; }
+.page-head .aside { font-family: var(--sans); font-size: 0.9375rem; color: var(--muted); margin-top: 0.6rem; }
 
 /* Sections: heading column and content column */
 .section {
@@ -206,8 +211,8 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
 .pub-venue i { font-family: var(--serif); font-size: 1.0625rem; color: var(--ink); }
 .badges { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0 0; padding: 0; }
 .badge {
-  font-family: var(--sans); font-weight: 600; font-size: 0.78rem; line-height: 1;
-  padding: 0.36rem 0.5rem 0.32rem; border-radius: 2px; letter-spacing: 0.01em; white-space: nowrap;
+  font-family: var(--sans); font-weight: 700; font-size: 0.78rem; line-height: 1;
+  padding: 0.38rem 0.58rem 0.34rem; border-radius: 6px; letter-spacing: 0.01em; white-space: nowrap;
 }
 .pub-media { font-family: var(--sans); font-size: 0.875rem; line-height: 1.35; color: var(--muted); margin: 0.45rem 0 0; }
 

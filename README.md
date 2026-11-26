@@ -23,7 +23,7 @@ To replace the CV, overwrite `static/files/Reza-Alibakhshi-CV.pdf` and rebuild.
 
 ## Design notes
 
-- Colours (palette B1, harbour teal): primary `#235B6A` for the name, headings, links and years; accent `#5F9E98` for underlines and other non-text details; text `#1C2B36`; secondary text `#53646D`; section bands `#EEF4F3`. Ranking badges use the colours Reza specified: FT50 `#F4CC9E`, ABDC `#245292`, ABS (AJG) `#7BC5D0`.
+- Colours (palette B1, harbour teal): primary `#235B6A` for the name, headings, links and years; accent `#5F9E98` for underlines and other non-text details; text `#1C2B36`; secondary text `#53646D`; section bands `#EEF4F3`. Ranking badges keep the hues Reza specified, made more vivid in OKLCH (same hue, higher chroma): FT50 `#F9B050` (originally `#F4CC9E`), ABDC `#0A4FA4` (originally `#245292`), ABS (AJG) `#2CB4C5` (originally `#7BC5D0`).
 - Type: Literata for reading text and headings, Schibsted Grotesk for navigation and labels, both under the SIL Open Font License and served from this site (no requests to Google Fonts).
 - The old Google Sites address `/home` redirects to the home page, and `/research` keeps its address.
 
