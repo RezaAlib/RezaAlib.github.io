@@ -48,13 +48,17 @@
 }
 
 :root {
-  --primary: #235b6a;
-  --accent: #5f9e98;
-  --ink: #1c2b36;
-  --muted: #53646d;
-  --line: #d5e2e0;
-  --wash: #eef4f3;
+  /* Palette: white page, pale United Nations blue bands, navy headings, black text.
+     United Nations blue #6491DE is the accent (underlines, rules, map). It is too light for text,
+     so headings use navy #083279, the same OKLCH hue made darker (11.5:1 on white, 10.6:1 on the bands). */
+  --primary: #083279;
+  --accent: #6491de;
+  --ink: #000000;
+  --muted: #555555;
+  --line: #d3e0f5;
+  --wash: #e7f1ff;
   --paper: #ffffff;
+  --arc: clamp(0.9rem, 3vw, 2.75rem); /* depth of the curve at the top and bottom of each band */
   --serif: "Literata", Georgia, "Times New Roman", serif;
   --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
   --measure: 40rem;
@@ -70,6 +74,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden; overflow-x: clip; /* the curved bands run to the screen edges; never scroll sideways */
   background: var(--paper);
   color: var(--ink);
   font-family: var(--serif);
@@ -84,9 +89,9 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 
 a {
-  color: var(--primary);
+  color: var(--ink);
   text-decoration-line: underline;
-  text-decoration-color: rgba(95, 158, 152, 0.6);
+  text-decoration-color: rgba(100, 145, 222, 0.8);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
@@ -150,12 +155,12 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
   display: inline-flex; align-items: center; justify-content: center; width: 2.75rem; height: 2.75rem;
   border-radius: 50%; color: var(--ink); text-decoration: none;
 }
-.icon-link a:hover { background: rgba(35, 91, 106, 0.1); }
+.icon-link a:hover { background: rgba(8, 50, 121, 0.1); }
 .icon-link svg { width: 1.375rem; height: 1.375rem; fill: currentColor; }
 .icon-row { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 0.1rem; }
 .icon-row-small .icon-link svg { width: 1.2rem; height: 1.2rem; }
 .portrait { margin: 0; justify-self: end; width: 100%; max-width: 24rem; }
-.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 22%; border-radius: 3px; background: #5d5f60; }
+.portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 22%; border-radius: 14px; background: #5d5f60; }
 /* Wide screens: the photo column is as wide as the text column and the photo fills the text block's height, so the two read as matching blocks. */
 @media (min-width: 52.0625rem) {
   .portrait { position: relative; justify-self: stretch; max-width: none; min-height: 22rem; }
@@ -164,8 +169,7 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
 
 /* Page title for inner pages */
 .page-head {
-  padding-top: clamp(1.75rem, 3.5vw, 2.5rem); padding-bottom: clamp(1.6rem, 3.2vw, 2.25rem); text-align: center;
-  background: var(--wash); box-shadow: 0 0 0 100vmax var(--wash); clip-path: inset(0 -100vmax);
+  padding-top: clamp(1.75rem, 3.5vw, 2.5rem); padding-bottom: calc(clamp(1.6rem, 3.2vw, 2.25rem) + var(--arc) * 0.5); text-align: center;
 }
 .page-head h1 {
   font-weight: 500; font-size: clamp(2.5rem, 5.5vw, 3.75rem); line-height: 1; letter-spacing: -0.02em;
@@ -182,10 +186,24 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
 /* Alternate full-width bands: the shade runs edge to edge while content stays in the column. */
 /* Every page opens on the pale band (home: the hero; other pages: the centred header), then bands alternate. */
 .home main > section:nth-of-type(odd),
-.inner main > section:nth-of-type(even) { background: var(--wash); box-shadow: 0 0 0 100vmax var(--wash); clip-path: inset(0 -100vmax); }
+.inner main > section:nth-of-type(even),
+.page-head { position: relative; isolation: isolate; }
+/* The band itself is drawn behind the section, edge to edge, with gently curved top and bottom edges.
+   The first band on each page sits under the header, so only its bottom edge curves. */
+.home main > section:nth-of-type(odd)::before,
+.inner main > section:nth-of-type(even)::before,
+.page-head::before {
+  content: ""; position: absolute; z-index: -1; top: 0; bottom: 0;
+  left: calc(50% - 50vw); right: calc(50% - 50vw);
+  background: var(--wash); border-radius: 50% / var(--arc);
+}
+.home main > section.hero::before,
+.page-head::before { border-radius: 0 0 50% 50% / 0 0 var(--arc) var(--arc); }
+.home main > section:nth-of-type(odd):not(.hero),
+.inner main > section:nth-of-type(even) { padding-top: calc(clamp(2.25rem, 4.5vw, 3.5rem) + var(--arc) * 0.4); padding-bottom: calc(clamp(2.25rem, 4.5vw, 3.5rem) + var(--arc) * 0.4); }
 .section > h2 {
   font-family: var(--serif); font-weight: 600; font-size: 1.5rem; line-height: 1.2;
-  letter-spacing: -0.01em; margin: 0.1rem 0 0; color: var(--ink);
+  letter-spacing: -0.01em; margin: 0.1rem 0 0; color: var(--primary);
 }
 .section > .body { max-width: 46rem; }
 .section > .body > :first-child { margin-top: 0; }
@@ -204,7 +222,7 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
 .pub-year { font-family: var(--serif); font-size: 2.1rem; line-height: 1; color: var(--primary); padding-top: 0.05rem; }
 .pub:last-child { margin-bottom: 0; }
 .body .pub-title { font-family: var(--serif); font-size: 1.1875rem; line-height: 1.3; font-weight: 600; color: var(--ink); margin: 0 0 0.2rem; }
-.pub-title a { text-decoration-color: rgba(95, 158, 152, 0.5); }
+.pub-title a { color: var(--primary); text-decoration-color: rgba(100, 145, 222, 0.55); }
 .pub-authors { margin: 0; font-size: 1.0625rem; line-height: 1.35; }
 .me { font-weight: 650; }
 .pub-venue { font-family: var(--sans); font-size: 0.9375rem; line-height: 1.35; color: var(--muted); margin: 0.1rem 0 0; }
@@ -217,10 +235,10 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
 .pub-media { font-family: var(--sans); font-size: 0.875rem; line-height: 1.35; color: var(--muted); margin: 0.45rem 0 0; }
 
 /* Work in progress */
-.wp { margin: 0 0 1.5rem; padding-left: 1.1rem; border-left: 2px solid var(--line); }
+.wp { margin: 0 0 1.5rem; padding-left: 1.1rem; border-left: 2px solid var(--accent); }
 .wp:last-child { margin-bottom: 0; }
 .wp-venue { font-family: var(--sans); font-size: 0.9375rem; line-height: 1.35; margin: 0 0 0.2rem; color: var(--muted); }
-.wp-venue strong { color: var(--primary); font-weight: 600; }
+.wp-venue strong { color: var(--ink); font-weight: 600; }
 .wp-summary { margin: 0 0 0.25rem; line-height: 1.45; }
 .wp-authors { font-family: var(--sans); font-size: 0.875rem; line-height: 1.35; color: var(--muted); margin: 0; }
 .wp-authors .me { color: var(--ink); font-weight: 600; }
@@ -240,15 +258,15 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
 .dated .what small { display: block; font-family: var(--sans); font-size: 0.875rem; color: var(--muted); margin-top: 0.05rem; }
 .dated.compact li { padding: 0.22rem 0; border-top: 0; }
 .dated.compact .place { font-family: var(--sans); font-size: 0.875rem; color: var(--muted); }
-.dated .flag { font-family: var(--sans); font-size: 0.8125rem; color: var(--primary); font-weight: 600; }
+.dated .flag { font-family: var(--sans); font-size: 0.8125rem; color: var(--ink); font-weight: 600; }
 
 /* Courses */
 .course { margin: 0 0 1.35rem; }
 .course:last-child { margin-bottom: 0; }
-.course h3 { font-family: var(--serif); font-weight: 600; font-size: 1.1875rem; line-height: 1.3; color: var(--ink); margin: 0 0 0.1rem; }
+.course h3 { font-family: var(--serif); font-weight: 600; font-size: 1.1875rem; line-height: 1.3; color: var(--primary); margin: 0 0 0.1rem; }
 .course p { margin: 0; font-family: var(--sans); font-size: 0.9375rem; line-height: 1.4; color: var(--muted); }
 .course .rating { color: var(--ink); }
-.course .note { color: var(--primary); }
+.course .note { color: var(--ink); }
 
 /* Education */
 .edu { list-style: none; margin: 1.5rem 0 0; padding: 0; }
@@ -263,11 +281,13 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
 /* Coauthor world map */
 .section-wide > .body { max-width: none; }
 .wmap { position: relative; margin: 0.75rem 0 0.5rem; }
-.wmap svg { display: block; width: 100%; height: auto; background: #ffffff; border-radius: 4px; }
-.wmap .country { fill: #dfe7e6; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
-.wmap .country.bin-1 { fill: #b9d7d2; }
-.wmap .country.bin-2 { fill: #5f9e98; }
-.wmap .country.bin-3 { fill: #235b6a; }
+/* Map: blue ocean, white land, coauthor countries in a light-to-dark amber ramp (sequential scheme:
+   lightness carries the count, so the order reads even without colour vision). */
+.wmap svg { display: block; width: 100%; height: auto; background: #cfe0f7; border-radius: 14px; }
+.wmap .country { fill: #ffffff; stroke: #b3c8e8; stroke-width: 0.8; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.wmap .country.bin-1 { fill: #f6cc94; }
+.wmap .country.bin-2 { fill: #eeb154; }
+.wmap .country.bin-3 { fill: #b37900; }
 .wmap .country[data-country] { cursor: pointer; }
 .wmap .country[data-country]:hover, .wmap .country.is-active { stroke: var(--ink); stroke-width: 1.2; }
 .wmap .country:focus { outline: none; }
@@ -276,7 +296,7 @@ a:hover { text-decoration-color: var(--primary); text-decoration-thickness: 2px;
 .wmap-tip {
   position: absolute; z-index: 2; width: 19rem; max-width: calc(100% - 1rem);
   background: var(--paper); border: 1px solid var(--line); border-radius: 4px;
-  box-shadow: 0 8px 28px rgba(28, 43, 54, 0.14); padding: 0.75rem 0.9rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14); padding: 0.75rem 0.9rem;
   font-family: var(--sans); font-size: 0.875rem; line-height: 1.35; pointer-events: none;
 }
 .wmap-tip .tip-head { font-family: var(--serif); font-weight: 600; font-size: 1.0625rem; color: var(--primary); margin: 0 0 0.4rem; }
